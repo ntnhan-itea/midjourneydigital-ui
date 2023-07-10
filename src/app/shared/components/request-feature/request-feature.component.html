@@ -1,0 +1,172 @@
+<div class="container">
+    <div class="popup">
+        <div class="tabset">
+            <ul class="nav nav-tabs">
+                <li class="nav-item" [ngClass]="{ active: activeTab === 1 }">
+                    <a class="nav-link" (click)="changeTab(1)">
+                        <!-- <i _ngcontent-ryr-c68="" class="tim-icons icon-spaceship ng-star-inserted"></i> -->
+                        Product
+                    </a>
+                </li>
+                <li class="nav-item" [ngClass]="{ active: activeTab === 2 }">
+                    <a class="nav-link" (click)="changeTab(2)">Anime</a>
+                </li>
+                <li class="nav-item" [ngClass]="{ active: activeTab === 3 }">
+                    <a class="nav-link" (click)="changeTab(3)"
+                        >Midjourney Free</a
+                    >
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" [ngClass]="{ active: activeTab === 1 }">
+                    <div class="question-list">
+                        <div
+                            *ngFor="let question of questionsProduct"
+                            class="question-list--item"
+                        >
+                            <div class="slider-qusetion">
+                                <label>
+                                    {{ question.label }} 
+                                </label>
+                                <p class="product-counter">
+                                    ({{question.counter}} likes)
+                                </p>
+                                <div class="group-ration-btn">
+                                    <div class="form-check form-check-radio">
+                                        <label class="form-check-label">
+                                            <input
+                                                class="form-check-input"
+                                                [name]="question.group"
+                                                [(ngModel)]="question.isChoose"
+                                                type="radio"
+                                                [value]="true"
+                                            />
+
+                                            <span class="form-check-sign">
+                                            </span>
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-radio">
+                                        <label class="form-check-label">
+                                            <input
+                                                checked="checked"
+                                                [(ngModel)]="question.isChoose"
+                                                class="form-check-input"
+                                                [name]="question.group"
+                                                type="radio"
+                                                [value]="false"
+                                            />
+
+                                            <span class="form-check-sign">
+                                            </span>
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slider">
+                                <carousel
+                                    [showIndicators]="false"
+                                    class="slider-container"
+                                >
+                                    <slide *ngFor="let img of question.images">
+                                        <img
+                                            alt="First slide"
+                                            class="d-block"
+                                            [src]="img"
+                                        />
+                                    </slide>
+                                </carousel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" [ngClass]="{ active: activeTab === 2 }">
+                    <h4>
+                        Which anime series or franchise would you like us to
+                        focus on for generating the most products? (Please
+                        select one or multiple):
+                    </h4>
+                    <div class="question-list">
+                        <div
+                            *ngFor="let question of optionsAnime"
+                            class="question-list--item"
+                        >
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    [(ngModel)]="question.isSelected"
+                                />
+                                <span class="option-lable">
+                                    {{ question.title }}
+                                    <span class="amount-request">
+                                        ({{ question.counter }} requests)
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" [ngClass]="{ active: activeTab === 3 }">
+                    <div class="midjourney-free">
+                        <div class="midjourney-free--qusetion" *ngFor="let question of questionMidjourney">
+                            <label>
+                                {{ question.label }} 
+                            </label>
+                            <p class="midjourney-free--counter">
+                                ({{question.counter}} likes)
+                            </p>
+                            <div class="group-ration-btn">
+                                <div class="form-check form-check-radio">
+                                    <label class="form-check-label">
+                                        <input
+                                            class="form-check-input"
+                                            [name]="question.group"
+                                            [(ngModel)]="question.isChoose"
+                                            type="radio"
+                                            [value]="true"
+                                        />
+    
+                                        <span class="form-check-sign">
+                                        </span>
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-radio">
+                                    <label class="form-check-label">
+                                        <input
+                                            checked="checked"
+                                            [(ngModel)]="question.isChoose"
+                                            class="form-check-input"
+                                            [name]="question.group"
+                                            type="radio"
+                                            [value]="false"
+                                        />
+    
+                                        <span class="form-check-sign">
+                                        </span>
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button
+                class="btn btn-primary"
+                [disabled]="!hasSelectedOptions()"
+                (click)="submitPopup()"
+            >
+                Submit
+            </button>
+            <button class="btn btn-secondary" (click)="closePopup()">
+                Close
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,302 @@
+<div class="testingpage-container">
+  <app-left-nav-component
+    class="app-left-nav-component"
+  ></app-left-nav-component>
+
+  <section class="section section-lg section-coins testing">
+    <nav
+      class="testing-nav-header navbar navbar-header navbar-expand-lg fixed-top navbar-transparent"
+      color-on-scroll="100"
+      id="navbar-top"
+    >
+      <div class="container">
+        <div class="navbar-translate flex-wrap">
+          <a
+            class="navbar-brand"
+            href="#!"
+            placement="bottom"
+            tooltip="We design the future"
+          >
+            Venus Team
+          </a>
+          <button
+            aria-controls="navigation-index"
+            aria-label="Toggle navigation"
+            class="navbar-toggler navbar-toggler"
+            [attr.aria-expanded]="!isCollapsed"
+            (click)="isCollapsed = !isCollapsed"
+            id="navigation"
+            type="button"
+          >
+            <span class="navbar-toggler-bar bar1"> </span>
+            <span class="navbar-toggler-bar bar2"> </span>
+            <span class="navbar-toggler-bar bar3"> </span>
+          </button>
+        </div>
+        <div
+          class="navbar-collapse justify-content-end"
+          [collapse]="isCollapsed"
+          id="navigation"
+        >
+          <div class="navbar-collapse-header">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a> BLK• </a>
+              </div>
+              <div class="col-6 collapse-close text-right">
+                <button
+                  aria-controls="navigation-index"
+                  aria-label="Toggle navigation"
+                  class="navbar-toggler"
+                  [attr.aria-expanded]="!isCollapsed"
+                  (click)="isCollapsed = !isCollapsed"
+                  id="navigation"
+                  type="button"
+                >
+                  <i class="tim-icons icon-simple-remove"> </i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <ul class="navbar-nav">
+            <li class="nav-item p-0">
+              <a
+                class="nav-link"
+                href="{{ urlInstagram }}"
+                placement="bottom"
+                target="_blank"
+                tooltip="Follow us on Instagram"
+              >
+                <i class="fab fa-instagram"> </i>
+                <p class="d-lg-none d-xl-none">Instagram</p>
+              </a>
+            </li>
+            <li class="nav-item p-0">
+              <a
+                class="nav-link"
+                href="#!"
+                placement="bottom"
+                tooltip="Voting image pair"
+                (click)="msgDevelopingFeature()"
+              >
+                <i class="fas fa-chart-line"> </i>
+                <p class="d-lg-none d-xl-none">Voting</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="flex flex-col mb-6 w-full midle-header container">
+      <div
+        class="flex flex-wrap justify-between items-center w-full midle-header--item"
+      >
+        <h1 class="flex items-center h-16 text-4xl font-medium text-white">
+          Digital Art Neverland Showcase
+        </h1>
+        <div
+          class="flex flex-row grow gap-1 justify-end justify-self-end items-center w-auto flex-wrap"
+        >
+          <div class="flex gap-2">
+            <a
+              title="Sort by Recent"
+              class="hover:bg-uiBlue-600/80 active:bg-slate-800 active:ring-uiBlue-600 flex justify-center items-center py-2 px-2 w-full text-base font-medium text-white bg-opacity-80 focus:outline-none active:ring-2 shadow-sm capitalize rounded-full !px-4 min-w-max w-auto flex gap-1 !justify-between text-right text-slate-100 bg-slate-800 hover:!bg-slate-800 recent-1"
+              href="#!"
+              (click)="msgDevelopingFeature()"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                aria-hidden="true"
+                height="18"
+                class="text-red-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                ></path>
+              </svg>
+              Recent
+            </a>
+            <a
+              title="Sort by Recent"
+              class="hover:bg-uiBlue-600/80 active:bg-slate-800 active:ring-uiBlue-600 flex justify-center items-center py-2 px-2 w-full text-base font-medium text-white bg-opacity-80 focus:outline-none active:ring-2 shadow-sm capitalize rounded-full !px-4 min-w-max w-auto flex gap-1 !justify-between text-right text-slate-100 bg-slate-800 hover:!bg-slate-800 recent-2"
+              href="#!"
+              (click)="msgDevelopingFeature()"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                aria-hidden="true"
+                height="18"
+                class="text-red-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              title="Sort by Top"
+              class="hover:bg-uiBlue-600/80 active:bg-slate-800 active:ring-uiBlue-600 flex justify-center items-center py-2 px-2 w-full text-base font-medium text-white bg-opacity-80 focus:outline-none active:ring-2 shadow-sm capitalize rounded-full !px-4 min-w-max w-auto flex gap-1 !justify-between text-right text-slate-400 hover:!bg-slate-800/75 top-1"
+              href="#!"
+              (click)="msgDevelopingFeature()"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                aria-hidden="true"
+                height="18"
+                class=""
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                ></path>
+              </svg>
+              Top
+            </a>
+            <a
+              title="Sort by Top"
+              class="hover:bg-uiBlue-600/80 active:bg-slate-800 active:ring-uiBlue-600 flex justify-center items-center py-2 px-2 w-full text-base font-medium text-white bg-opacity-80 focus:outline-none active:ring-2 shadow-sm capitalize rounded-full !px-4 min-w-max w-auto flex gap-1 !justify-between text-right text-slate-400 hover:!bg-slate-800/75 top-2"
+              href="#!"
+              (click)="msgDevelopingFeature()"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                aria-hidden="true"
+                height="18"
+                class=""
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <div>
+            <button
+              class="btn btn-primary btn-download"
+              (click)="toggleDownloadMode()"
+            >
+              {{ downloadMode ? "Cancel" : "Download" }}
+            </button>
+            <i
+              (click)="toggleDownloadMode()"
+              class="tim-icons icon-cloud-download-93 btn-download icon"
+            >
+            </i>
+          </div>
+
+          <div>
+            <button
+              class="btn btn-primary btn-request-feature"
+              (click)="showRequestFeature()"
+            >
+              Request feature
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div #masonryContainer class="row">
+        <div
+          class="col-md-2 img-container"
+          *ngFor="let columnImages of columnsImages"
+        >
+          <div *ngFor="let image of columnImages" class="card">
+            <div
+              class="card-container"
+              (click)="onImageSelectedChange(image)"
+              (mouseenter)="onMouseOver(image.id)"
+              (mouseleave)="onMouseOut()"
+            >
+              <div class="img-wrapper">
+                <img
+                  class="img-center img-fluid image-item"
+                  [src]="image.path"
+                />
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  *ngIf="downloadMode"
+                  [ngModel]="image.selected"
+                />
+              </div>
+              <app-description-info
+                *ngIf="isShowStoryImage(image.id)"
+                (showRatingDialog)="openRatingDialog(image.path)"
+              ></app-description-info>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="footer-download" *ngIf="downloadMode && selectedImages.length > 0">
+  <div class="footer-download-item">
+    <div class="footer-download-container">
+      <div class="btn download-container--item" (click)="resetSelectedImages()">
+        Clear
+      </div>
+      <div class="btn download-container--item" (click)="selectAllImages()">
+        Select all
+      </div>
+      <button
+        class="btn btn-primary download-container--item"
+        (click)="openTermsOfUsePopup()"
+      >
+        Download ({{ selectedImages.length }})
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-prompt-detail-dialog
+  *ngIf="showDialog"
+  [imageDetailUrl]="imageDialogDetailUrl"
+  (close)="closeRatingDialog()"
+></app-prompt-detail-dialog>
+
+<app-terms-of-use-popup
+  *ngIf="showTermsOfUsePopup"
+  (termsAccepted)="onTermsAccepted()"
+  (termsCalled)="closeTermsOfUsePopup()"
+></app-terms-of-use-popup>
+
+<app-message-popup></app-message-popup>
+
+<app-request-feature
+  *ngIf="showingRequestFeaturePopup"
+  (closeDialog)="closeRequestFeature()"
+></app-request-feature>

@@ -1,0 +1,32 @@
+<div class="custom-dialog-overlay">
+    <div class="custom-dialog-container">
+      <div class="custom-dialog-header">
+        <h2>Title</h2>
+        <button class="close-button" (click)="closeDialog()">&times;</button>
+      </div>
+      <div class="custom-dialog-content">
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <!-- <img src="assets/img/fabien-bazanegue.jpg" class="card-img" alt="Image Alt Text"> -->
+              <img [src]="imageDetailUrl" class="card-img" alt="Image Alt Text">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Card Title</h5>
+                <p class="card-text">Detailed description goes here.</p>
+                <div class="star-rating">
+                    <span class="tim-icons icon-shape-star" (click)="rate(1)" [ngClass]="{ 'active': currentRating >= 1 }"></span>
+                    <span class="tim-icons icon-shape-star" (click)="rate(2)" [ngClass]="{ 'active': currentRating >= 2 }"></span>
+                    <span class="tim-icons icon-shape-star" (click)="rate(3)" [ngClass]="{ 'active': currentRating >= 3 }"></span>
+                    <span class="tim-icons icon-shape-star" (click)="rate(4)" [ngClass]="{ 'active': currentRating >= 4 }"></span>
+                    <span class="tim-icons icon-shape-star" (click)="rate(5)" [ngClass]="{ 'active': currentRating >= 5 }"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,137 @@
+.left-nav-container {
+    .navbar-toggle-btn {
+        display: none;
+    }
+
+    .nav-left-icon {
+        height: 100%;
+        width: 42px;
+    }
+
+    .navbar-toggler {
+        .navbar-toggler-bar {
+            display: block;
+            position: relative;
+            width: 22px;
+            height: 1px;
+            border-radius: 1px;
+            background: #ffffff;
+        }
+    }
+
+    .left-nav-item {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+
+        svg {
+            margin-right: 12px;
+        }
+
+        .font-size-icon-respv {
+            margin-right: 12px;
+            font-size: 16px;
+        }
+    }
+
+    .left-nav-item:hover {
+        background-color: #3d4081;
+    }
+}
+
+.expanded {
+    // width: 60px;
+}
+
+.toggle-button {
+    display: block;
+    margin: 10px;
+}
+
+.nav-items {
+    list-style-type: none;
+    padding: 0;
+
+    .icon {
+        display: flex;
+        justify-content: center;
+    }
+
+    .icon.color {
+        --tw-text-opacity: 1;
+        color: rgb(149 180 240 / var(--tw-text-opacity));
+    }
+
+    .icon.width {
+        width: 22px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .left-nav-container {
+        .nav-items-toggle {
+            display: none;
+        }
+
+        .navbar-toggle-btn {
+            display: block;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 934px) {
+    .left-nav-container {
+        .font-size-respv {
+            font-size: 15px;
+        }
+
+        .nav-left-icon {
+            width: 36px;
+        }
+    }
+}
+
+@media screen and (min-width: 935px) and (max-width: 1279px) {
+    .left-nav-container {
+        .font-size-respv {
+            font-size: 15px;
+        }
+
+        .nav-left-icon {
+        }
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1479px) {
+    .left-nav-container {
+        .font-size-respv {
+            font-size: 16px;
+        }
+
+        .nav-left-icon {
+        }
+    }
+}
+
+@media screen and (min-width: 1480px) and (max-width: 1800px) {
+    .left-nav-container {
+        .font-size-respv {
+            font-size: 18px;
+        }
+
+        .nav-left-icon {
+        }
+    }
+}
+
+@media screen and (min-width: 1801px) {
+    .left-nav-container {
+        .font-size-respv {
+            font-size: 21px;
+        }
+
+        .nav-left-icon {
+            width: 48px;
+        }
+    }
+}

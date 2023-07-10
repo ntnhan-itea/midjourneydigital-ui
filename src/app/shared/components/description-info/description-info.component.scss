@@ -1,0 +1,200 @@
+.pb-12 {
+    // padding: 6px 12px;
+    padding-bottom: 12px;
+}
+
+.mb-12 {
+    margin-bottom: 12px;
+}
+
+.multiline-ellipsis-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap; /* let the text wrap preserving spaces */
+}
+
+.information {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    max-width: 98%;
+    background-color: #171941;
+    padding: 12px;
+    border-radius: 10px;
+    transition: all 1s ease;
+    transform: translateY(-10px);
+
+    .information-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .information-title {
+            color: #ed4245;
+        }
+
+        // .information-time {
+        //     font-size: 12px;
+        // }
+    }
+
+    .information-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 24px;
+        margin-top: 12px;
+
+        .btn-detail {
+            margin: 0;
+        }
+
+        .information-footer--item {
+            height: 100%;
+        }
+
+        .information-footer--item.btn {
+            padding: 11px;
+            font-size: 11px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            height: 100%;
+            width: auto;
+            border-radius: 50%;
+            margin-right: 4px;
+        }
+
+        .information-author {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            align-items: center;
+            // font-size: 11px;
+        }
+    }
+}
+
+@media screen and (min-width: 1801px) {
+    .information {
+        .font-size-respv {
+            font-size: 18px !important;
+        }
+
+        .information-footer {
+            height: 24px !important;
+        }
+    }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1800px) {
+    .information {
+        .font-size-respv {
+            font-size: 8px;
+        }
+
+        .information-footer {
+            height: 20px !important;
+
+            .information-author {
+                font-size: 9px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1081px) and (max-width: 1280px) {
+    .information {
+        .font-size-respv {
+            font-size: 9px !important;
+        }
+
+        .information-footer {
+            height: 15px !important;
+        }
+    }
+}
+
+@media screen and (min-width: 968px) and (max-width: 1080px) {
+    .information {
+        .font-size-respv {
+            font-size: 7px !important;
+        }
+
+        .information-footer {
+            height: 12px !important;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 967px) {
+    .information {
+        .font-size-respv {
+            font-size: 4px !important;
+        }
+
+        .information-footer {
+            height: 11px !important;
+
+            .btn-detail {
+                padding: 7px !important;
+                font-size: 7px !important;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 615px) and (max-width: 767px) {
+    .information {
+        .font-size-respv {
+            font-size: 22px !important;
+        }
+
+        .information-footer {
+            height: 22px !important;
+        }
+    }
+}
+
+
+@media screen and (min-width: 465px) and (max-width: 614px) {
+    .information {
+        .font-size-respv {
+            font-size: 16px !important;
+        }
+
+        .information-footer {
+            height: 16px !important;
+        }
+    }
+}
+
+@media screen and (min-width: 1px) and (max-width: 464px) {
+    .information {
+        .font-size-respv {
+            font-size: 7px !important;
+        }
+
+        .information-footer {
+            height: 12px !important;
+        }
+    }
+}
+
+// @media screen and (max-width: 767px) {
+//     .information {
+//         .font-size-respv {
+//             font-size: 18px !important;
+//         }
+
+//         .information-footer {
+//             height: 18px !important;
+//         }
+//     }
+// }

@@ -1,0 +1,33 @@
+
+$primary-color: #337ab7;
+$warning-color: #ffc107;
+$error-color: #dc3545;
+
+.message-popup-container {
+    position: fixed;
+    top: 20px; /* Adjust the top position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 50%;
+}
+
+.message {
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    max-width: 100%;
+    background-color: $primary-color;
+}
+
+.message.warning {
+    background-color: $warning-color;
+}
+
+.message.error {
+    background-color: $error-color;
+}

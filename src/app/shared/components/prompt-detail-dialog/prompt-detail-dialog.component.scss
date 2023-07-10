@@ -1,0 +1,62 @@
+.custom-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custom-dialog-container {
+    background-color: #171941;
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .custom-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .custom-dialog-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+  }
+  
+  .close-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .close-button:hover {
+    color: #aaa;
+  }
+  
+  .custom-dialog-content {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: white;
+  }
+  
+//   .star-rating .tim-icons.icon-shape-star {
+//     color: #ebe600;
+//   }
+
+  .star-rating .tim-icons.icon-shape-star.active {
+    color: yellow;
+  }
+
+
+  

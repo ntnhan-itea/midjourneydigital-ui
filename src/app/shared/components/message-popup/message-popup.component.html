@@ -1,0 +1,20 @@
+<div class="message-popup-container">
+    <!-- <div
+        class="message"
+        *ngFor="let message of messages; let i = index"
+        [@fadeInOut]
+        (click)="dismissMessage(i)"
+    >
+        {{ message }}
+    </div> -->
+
+    <div
+        *ngFor="let message of messages; let i = index"
+        class="message"
+        [class]="message.level"
+        (mouseenter)="onMouseEnter(message)"
+        (mouseleave)="onMouseLeave(message)"
+    >
+        {{ message.text }}
+    </div>
+</div>

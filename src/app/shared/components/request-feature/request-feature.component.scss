@@ -1,0 +1,161 @@
+
+
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.popup {
+    background-color: #f8f8f8;
+    padding: 20px;
+    height: 520px;
+    max-height: 80%;
+    width: 650px;
+    border: 1px solid #1f2251;
+    background-color: #171941;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    .tabset {
+        max-height: 410px;
+        overflow: hidden;
+
+        .tab-content {
+            overflow-y: auto;
+            max-height: 340px;
+            min-height: 100px;
+        }
+    }
+}
+
+.tabset {
+    background-color: #1f2251;
+    margin-bottom: 20px;
+}
+
+.nav-tabs {
+    border-bottom: 0.0625rem solid #e3e3e3;
+}
+
+.nav-item {
+    margin-bottom: -1px;
+}
+
+.nav-item.active {
+    .nav-link {
+        border-color: #fd5d93;
+        color: #fd5d93;
+        border-radius: 30px;
+    }
+}
+
+.nav-link {
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    padding: 7px 15px !important;
+}
+
+.nav-link.active {
+    border-color: #fd5d93;
+    color: #fd5d93;
+    border-radius: 30px;
+}
+
+.tab-content {
+    // border: 1px solid #dee2e6;
+    padding: 20px 20px;
+}
+
+.question-list--item {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    label {
+        display: flex !important;
+        align-items: center !important;
+        margin: 0;
+        width: 100%;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .amount-request,
+    .product-counter {
+        color: #d84fd4;
+    }
+
+    input {
+        margin-right: 8px;
+    }
+
+    .slider-qusetion {
+        flex-basis: 47%;
+    }
+
+    .slider {
+        width: 50%;
+
+        .slider-container {
+            slide {
+                ::ng-deep .item {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            img {
+                height: 177px !important;
+                max-height: 100%;
+                width: auto;
+            }
+        }
+    }
+}
+
+.midjourney-free {
+    padding: 12px 0;
+
+    .midjourney-free--qusetion {
+        margin-bottom: 27px;
+
+        label {
+            margin-bottom: 0;
+            color: #fff;
+        }
+    }
+
+    .midjourney-free--counter {
+        color: #d84fd4;
+    }
+}
+
+.group-ration-btn {
+    display: flex;
+
+    .form-check-radio {
+        margin-right: 8px;
+    }
+}
+
+
+.footer {
+    border: none;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    padding: 0;
+    background: none;
+}
+
+.btn {
+    margin-left: 10px;
+}
