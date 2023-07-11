@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: Poppins, sans-serif;
+  background-color: #171941 !important;
+  color: #fff !important;
+}
+
+.btn {
+  border: none;
+  position: relative;
+  overflow: hidden;
+  margin: 4px 1px;
+  border-radius: 0.4285rem;
+  cursor: pointer;
+  background: #344675;
+  background-image: linear-gradient(to bottom left, #344675, #263148, #344675);
+  background-size: 210% 210%;
+  background-position: 100% 0;
+  background-color: #344675;
+  transition: all 0.15s ease;
+  box-shadow: none;
+  color: #fff !important;
+}
+
+.btn-primary {
+    background: #e14eca;
+    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
+    background-size: 210% 210%;
+    background-position: 100% 0;
+    background-color: #e14eca;
+    transition: all .15s ease;
+    box-shadow: none;
+    color: #fff;
+    border-color: #007bff;
+    border-color: transparent !important;
+}
+
+.btn-primary:focus {
+    box-shadow: none !important;
+}

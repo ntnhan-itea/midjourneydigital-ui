@@ -15,43 +15,13 @@
     </nav>
 
     <ul class="nav-items nav-items-toggle" *ngIf="isExpanded">
-        <a class="left-nav-item" href="#!">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                aria-hidden="true"
-                height="22"
-                class="nav-left-icon icon width color"
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                ></path>
-            </svg>
-            <li class="font-size-respv">Home</li>
+        <a class="nav-link left-nav-item" href="#!">
+            <i class="fa-solid fa-house font-size-icon-respv icon color"></i>
+            <span class="font-size-respv">Home</span>
         </a>
-        <a class="left-nav-item" href="#!">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                aria-hidden="true"
-                height="22"
-                class="nav-left-icon icon width color"
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                ></path>
-            </svg>
-            <li class="font-size-respv">Notifications</li>
+        <a class="nav-link left-nav-item" href="#!">
+             <i class="fa-regular fa-bell font-size-icon-respv icon color"></i>
+            <span class="font-size-respv">Notifications</span>
         </a>
         <!-- Add more menu items here -->
 
@@ -73,7 +43,7 @@
             target="_blank"
             tooltip="Like us on Facebook"
         >
-            <i class="fab fa-facebook-square font-size-icon-respv icon width color">
+            <i class="fab fa-facebook-square font-size-icon-respv icon color">
             </i>
             <li class="font-size-respv">Facebook</li>
         </a>
@@ -85,7 +55,7 @@
             target="_blank"
             tooltip="Follow us on Instagram"
         >
-            <i class="fab fa-instagram font-size-icon-respv icon width color"> </i>
+            <i class="fab fa-instagram font-size-icon-respv icon color"> </i>
             <li class="font-size-respv">Instagram</li>
         </a>
         <a
@@ -94,11 +64,11 @@
             placement="bottom"
             tooltip="Voting image pair"
         >
-            <i class="fas fa-chart-line font-size-icon-respv icon width color"></i>
+            <i class="fas fa-chart-line font-size-icon-respv icon color"></i>
             <li class="font-size-respv">Voting</li>
         </a>
 
-        <a class="nav-item left-nav-item">
+        <a class="nav-link nav-item left-nav-item">
             <li
                 class="font-size-respv"
                 href="#!"

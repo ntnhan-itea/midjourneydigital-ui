@@ -1,0 +1,526 @@
+.flex-col {
+    flex-direction: column;
+}
+.w-full {
+    width: 100%;
+}
+.flex {
+    display: flex;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.font-medium {
+    font-weight: 500;
+}
+.text-4xl {
+    font-size: 2.25rem;
+}
+.items-center {
+    align-items: center;
+}
+.h-16 {
+    height: 4rem;
+}
+.justify-self-end {
+    justify-self: end;
+}
+.gap-1 {
+    gap: 0.25rem;
+}
+.gap-2 {
+    gap: 0.5rem;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+.items-center {
+    align-items: center;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-grow,
+.grow {
+    flex-grow: 1;
+}
+.w-auto {
+    width: auto;
+}
+.rounded-full {
+    border-radius: 9999px;
+}
+.shadow-sm,
+.shadow-xl {
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-sm {
+    --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+}
+.text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-slate-100 {
+    --tw-text-opacity: 1;
+    color: rgb(241 245 249 / var(--tw-text-opacity));
+}
+.capitalize {
+    text-transform: capitalize;
+}
+.font-medium {
+    font-weight: 500;
+}
+.text-base {
+    font-size: 1rem;
+}
+.text-right {
+    text-align: right;
+}
+.py-2 {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+.px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.\!px-4 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+.bg-opacity-80 {
+    --tw-bg-opacity: 0.8;
+}
+.bg-slate-800 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+.gap-1 {
+    gap: 0.25rem;
+}
+.\!justify-between {
+    justify-content: space-between !important;
+}
+.justify-center {
+    justify-content: center;
+}
+.items-center {
+    align-items: center;
+}
+.min-w-max {
+    min-width: -moz-max-content;
+    min-width: max-content;
+}
+.w-full {
+    width: 100%;
+}
+.w-auto {
+    width: auto;
+}
+.flex {
+    display: flex;
+}
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.shadow-sm,
+.shadow-xl {
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-sm {
+    --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+}
+.text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-slate-400 {
+    --tw-text-opacity: 1;
+    color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+.capitalize {
+    text-transform: capitalize;
+}
+.font-medium {
+    font-weight: 500;
+}
+.text-base {
+    font-size: 1rem;
+}
+.text-right {
+    text-align: right;
+}
+.py-2 {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+.px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.\!px-4 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+.bg-opacity-80 {
+    --tw-bg-opacity: 0.8;
+}
+.gap-1 {
+    gap: 0.25rem;
+}
+.\!justify-between {
+    justify-content: space-between !important;
+}
+.justify-center {
+    justify-content: center;
+}
+.items-center {
+    align-items: center;
+}
+.min-w-max {
+    min-width: -moz-max-content;
+    min-width: max-content;
+}
+
+.testing-nav-header {
+    width: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1030;
+
+    .container {
+        .navbar-translate {
+            width: 100%;
+        }
+    }
+}
+
+@keyframes pulse-animation {
+    // 0% {
+    //     transform: scale(1);
+    // }
+    // 50% {
+    //     transform: scale(1.1);
+    // }
+    // 100% {
+    //     transform: scale(1);
+    // }
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.testingpage-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    .container {
+        max-width: 100%;
+    }
+
+    .app-left-nav-component {
+        // margin-top: 25px;
+        flex-basis: 20%;
+
+        ::ng-deep .left-nav-container {
+            width: 19%;
+            height: 100%;
+
+            background-color: #171941;
+            // background-color: red; //TODO: remove
+
+            transition: width 0.3s;
+            position: fixed;
+        }
+    }
+
+    .testing {
+        margin-top: 0;
+        padding: 0;
+        flex-basis: 79%;
+        max-width: 100%;
+        position: relative;
+
+        .midle-header {
+            margin-top: 72px;
+            padding: 0 12px;
+            margin-bottom: 18px;
+            position: sticky;
+            z-index: 999;
+            top: 0;
+            background-color: #0b0b20;
+            border-radius: 14px;
+
+            .top-2 {
+                display: none;
+            }
+
+            .recent-2 {
+                display: none;
+            }
+
+            h1 {
+                margin-bottom: 0;
+                font-size: 20px;
+            }
+
+            .btn-download.btn {
+                width: 152px;
+            }
+
+            .btn-download.icon {
+                display: none;
+                color: #fff;
+                font-size: 15px;
+            }
+
+            .btn-request-feature {
+                padding: 11px 8px !important;
+                margin-left: 12px;
+                animation: pulse-animation 1.5s infinite;
+            }
+        }
+
+        .container {
+            .icon { 
+                color: #fff;
+            }
+
+            .row {
+                .card {
+                    background: transparent;
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 12px;
+                }
+
+                .img-container {
+                    margin-bottom: 18px;
+                    padding-right: 4px;
+                    padding-left: 4px;
+                    // flex: 0 0 20%;
+                    // max-width: 20%;
+
+                    img {
+                        cursor: pointer;
+                    }
+
+                    .information {
+                        position: absolute;
+                        bottom: 0;
+                        left: 2px;
+                        background-color: #171941;
+                        margin: 20px;
+                        border-radius: 10px;
+                        transition: all 1s ease;
+                        transform: translateY(-10px);
+
+                        .description {
+                            padding: 12px;
+                        }
+                    }
+
+                    .card-container {
+                        position: relative;
+                        $checkbox-size: 18px;
+                        $position: 10px;
+
+                        .img-wrapper {
+                            .image-item {
+                                border-radius: 15px;
+                            }
+                        }
+
+                        .checkbox {
+                            position: absolute;
+                            top: $position;
+                            right: $position;
+                            width: $checkbox-size;
+                            height: $checkbox-size;
+                            opacity: 0.6;
+                        }
+
+                        .checkbox input[type="radio"]:checked + .checkmark {
+                            background-color: #000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer-download {
+    height: 52px;
+    width: 60%;
+    position: sticky;
+    bottom: 18px;
+    margin: auto;
+    padding-left: 19%;
+
+    .footer-download-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #0b0b20;
+        border-radius: 15px;
+
+        .download-container--item {
+            margin: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .testingpage-container {
+        .testing-nav-header {
+            .container {
+                .navbar-brand {
+                    font-size: 24px;
+                }
+
+                .navbar-collapse {
+                    .navbar-nav {
+                        .nav-link {
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .testingpage-container {
+        app-left-nav-component {
+            // flex-basis: 25% !important;
+            display: none;
+
+            // ::ng-deep .left-nav-container {
+            //     width: 25% !important;
+            // }
+        }
+
+        .testing {
+            flex-basis: 99%;
+        }
+    }
+
+    .footer-download {
+        width: 99%;
+        height: 48px;
+        padding-left: 0;
+
+        .download-container--item {
+            margin: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .testingpage-container {
+        .testing {
+            .midle-header {
+                margin-top: 69px;
+                padding: 0 24px;
+
+                .midle-header--item {
+                    gap: 0;
+                }
+
+                .top-1 {
+                    display: none;
+                }
+
+                .recent-1 {
+                    display: none;
+                }
+
+                .top-2 {
+                    display: block;
+                }
+
+                .recent-2 {
+                    display: block;
+                    background-color: transparent;
+                }
+
+                h1 {
+                    font-size: 13px;
+                    height: 2rem;
+                }
+
+                .btn-download.btn {
+                    display: none;
+                }
+
+                .btn-download.icon {
+                    display: block;
+                    cursor: pointer;
+                }
+            }
+
+            .testing-nav-header {
+                .container {
+                    .navbar-brand {
+                        font-size: 12px;
+                        margin: 0 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-download {
+        .download-container--item {
+            margin: 10px !important;
+            padding: 0 10px;
+            font-size: 11px;
+        }
+    }
+}

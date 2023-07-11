@@ -1,6 +1,6 @@
 {
   "name": "midjourneydigital-ui",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -18,7 +18,9 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "bootstrap": "^4.6.2",
     "file-saver": "^2.0.5",
+    "jquery": "^3.7.0",
     "jszip": "^3.10.1",
     "ngx-bootstrap": "^10.2.0",
     "rxjs": "~7.8.0",
