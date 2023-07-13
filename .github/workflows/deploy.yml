@@ -1,0 +1,72 @@
+name: Deploy to Ubuntu server
+
+on:
+  push:
+    branches:
+      - main
+env:
+  DOCKER_IMAGE_TAG: ${{ vars.DOCKER_USERNAME }}/${{ vars.DOCKCER_REPOSITORY_NAME }}:latest
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # - name: Replace environment variables in Angular config
+    #   run: |
+    #     sed -i \
+    #     -e "s|\$_URL_INSTAGRAM_GITHUB_VAR|${{ vars.URL_INSTAGRAM }}|g" \
+    #     -e "s|\$_URL_TWITTER_GITHUB_VAR_FAKE|${{ vars.URL_TWITTER }}|g" \
+    #     -e "s|\$_URL_FACEBOOK_GITHUB_VAR|${{ vars.URL_FACEBOOK }}|g" \
+    #     -e "s|\$_MAX_AMOUNT_IMAGES_CAN_DOWNLOAD|${{ vars.MAX_AMOUNT_IMAGES_CAN_DOWNLOAD }}|g" \
+    #     -pe "s|\$_TERMS_OF_USE|${{ vars.TERMS_OF_USE }}|g" \
+    #     ./src/environments/environment.prod.ts
+    - name: Replace environment variables in Angular config
+      run: |
+        perl -i -pe '
+          s|\$_URL_INSTAGRAM_GITHUB_VAR|'"${{ vars.URL_INSTAGRAM }}"'|g;
+          s|\$_URL_TWITTER_GITHUB_VAR_FAKE|'"${{ vars.URL_TWITTER }}"'|g;
+          s|\$_URL_FACEBOOK_GITHUB_VAR|'"${{ vars.URL_FACEBOOK }}"'|g;
+          s|\$_MAX_AMOUNT_IMAGES_CAN_DOWNLOAD|'"${{ vars.MAX_AMOUNT_IMAGES_CAN_DOWNLOAD }}"'|g;
+          s|\$_URL_BACK_END|'"${{ vars.URL_BACK_END }}"'|g;
+          s|\$_TERMS_OF_USE|'"${{ vars.TERMS_OF_USE }}"'|g
+        ' ./src/environments/environment.prod.ts
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        username: ${{ vars.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: ${{ env.DOCKER_IMAGE_TAG }}
+  
+    - name: Deploy to Ubuntu server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ vars.SERVER_USERNAME }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        script: |
+          set -e
+          docker stop ${{ vars.CONTAINER_NAME }} || true
+          docker rmi -f ${{ env.DOCKER_IMAGE_TAG }} || true
+          docker pull ${{ env.DOCKER_IMAGE_TAG }}
+          # docker stop ${{ vars.CONTAINER_NAME }} || true
+          docker rm -f ${{ vars.CONTAINER_NAME }} || true
+          docker run -d --name ${{ vars.CONTAINER_NAME }} \
+            -v ${{ vars.IMAGES_ARTS_STORE_FOLDER }}:/usr/share/nginx/html/assets/img-manh \
+            --network=midjourneydigital-network \
+            -p 4200:80 \
+            ${{ env.DOCKER_IMAGE_TAG }} 
+
