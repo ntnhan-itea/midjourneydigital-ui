@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  angular_app:
+    image: digitalartgallery-ui-2-img
+    # image: <your-docker-hub-username>/<your-app-name>:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4300:80
