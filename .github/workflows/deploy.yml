@@ -64,9 +64,7 @@ jobs:
           docker pull ${{ env.DOCKER_IMAGE_TAG }}
           # docker stop ${{ vars.CONTAINER_NAME }} || true
           docker rm -f ${{ vars.CONTAINER_NAME }} || true
-          rm -rf ${{ vars.PROJECT_FOLDER }}/* || true
           docker run -d --name ${{ vars.CONTAINER_NAME }} \
-            -v ${{ vars.PROJECT_FOLDER }}:/usr/share/nginx/html \
             -v ${{ vars.IMAGES_ARTS_STORE_FOLDER }}:/usr/share/nginx/html/assets/img-manh \
             --network=midjourneydigital-network \
             -p 4200:80 \
