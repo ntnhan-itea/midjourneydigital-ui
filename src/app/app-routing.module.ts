@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NeverlandComponent } from './modules/neverland/neverland.component';
-import { PrivacyPolicyComponent } from '../app/shared/components/privacy-policy/privacy-policy.component';
+import { PrivacyPolicyComponent } from './modules/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: '',
+    path: 'home',
     component: NeverlandComponent,
-    // children: [{ path: 'privacy', component: PrivacyPolicyComponent }],
   },
   {
     path: 'privacy',
