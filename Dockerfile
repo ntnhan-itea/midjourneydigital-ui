@@ -27,6 +27,9 @@ RUN rm -rf /usr/share/nginx/html/*
 # Copy the build output to replace the default nginx contents.
 COPY --from=build /workspace/app/dist/midjourneydigital-ui /usr/share/nginx/html
 
+# Copy the custom nginx configuration
+COPY configs/nginx.conf /etc/nginx/conf.d/default.conf
+
 # Expose port 80
 EXPOSE 80
 
