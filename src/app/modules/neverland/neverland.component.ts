@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { saveAs } from 'file-saver';
 import * as JSZip from 'jszip';
+import { KeycloakService } from 'keycloak-angular';
 import { MessageLevel } from 'src/app/shared/components/message-popup/message-level.enum';
 import { MessagePopupComponent } from 'src/app/shared/components/message-popup/message-popup.component';
 import { NeverlandImage } from 'src/app/shared/models/NeverlandImage';
@@ -36,7 +37,7 @@ export class NeverlandComponent {
       : 4;
 
   constructor(
-
+   private keycloak: KeycloakService
   ) {}
 
   ngOnInit(): void {
@@ -103,6 +104,7 @@ export class NeverlandComponent {
   }
 
   toggleDownloadMode(): void {
+    this.keycloak.logout()
     this.downloadMode = !this.downloadMode;
     if (!this.downloadMode) {
       this.resetSelectedImages();

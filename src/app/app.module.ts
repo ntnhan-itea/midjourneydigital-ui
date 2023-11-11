@@ -1,12 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule,APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
-import {
-  GoogleLoginProvider,
-  FacebookLoginProvider
-} from '@abacritt/angularx-social-login';
-
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,21 +14,26 @@ import { MessagePopupComponent } from './shared/components/message-popup/message
 import { PromptDetailDialogComponent } from './shared/components/prompt-detail-dialog/prompt-detail-dialog.component';
 import { RequestFeatureComponent } from './shared/components/request-feature/request-feature.component';
 import { TermsOfUsePopupComponent } from './shared/components/terms-of-use-popup/terms-of-use-popup.component';
-import { GoogleLoginComponent } from './shared/components/google-login/google-login.component';
 import { PrivacyPolicyComponent } from './shared/components/privacy-policy/privacy-policy.component';
-import { FacebookLoginComponent } from './shared/components/facebook-login/facebook-login.component';
 
-// const config: SocialAuthServiceConfig = {
-//   autoLogin: false,
-//   providers: [
-//     {
-//       id: GoogleLoginProvider.PROVIDER_ID,
-//       provider: new GoogleLoginProvider(
-//         '224491911659-73qu807kbajj6q3u4qt7vdab125liia9.apps.googleusercontent.com'
-//       )
-//     }
-//   ]
-// };
+
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+
+
+function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
+    keycloak.init({
+      config: {
+        url: 'http://localhost:9090',
+        realm: 'master',
+        clientId: 'optimus',
+      },
+      initOptions: {
+        onLoad: 'login-required',  // allowed values 'login-required', 'check-sso';
+        flow: "standard"          // allowed values 'standard', 'implicit', 'hybrid';
+      },
+    });
+}
 
 
 @NgModule({
@@ -48,9 +46,7 @@ import { FacebookLoginComponent } from './shared/components/facebook-login/faceb
     TermsOfUsePopupComponent,
     MessagePopupComponent,
     RequestFeatureComponent,
-    GoogleLoginComponent,
     PrivacyPolicyComponent,
-    FacebookLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,32 +56,16 @@ import { FacebookLoginComponent } from './shared/components/facebook-login/faceb
     FormsModule,
     CollapseModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    SocialLoginModule,
-    
+    HttpClientModule,  
+    KeycloakAngularModule  
   ],
   providers: [
     {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              '224491911659-73qu807kbajj6q3u4qt7vdab125liia9.apps.googleusercontent.com'
-            )
-          },
-          {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('1415903539267269')
-          }
-        ],
-        onError: (err) => {
-          console.error(err);
-        }
-      } as SocialAuthServiceConfig,
-    }
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+      },
   ],
   bootstrap: [AppComponent],
 })

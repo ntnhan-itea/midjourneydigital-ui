@@ -77,11 +77,6 @@
               "browserTarget": "midjourneydigital-ui:build:development"
             }
           },
-          "options": {
-            "ssl": true,
-            "sslCert": "crt/localhost.crt",
-            "sslKey": "crt/localhost.key"
-          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
