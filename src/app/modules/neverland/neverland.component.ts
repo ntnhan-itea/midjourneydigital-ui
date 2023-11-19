@@ -6,6 +6,7 @@ import { MessageLevel } from 'src/app/shared/components/message-popup/message-le
 import { MessagePopupComponent } from 'src/app/shared/components/message-popup/message-popup.component';
 import { NeverlandImage } from 'src/app/shared/models/NeverlandImage';
 import { environment } from 'src/environments/environment';
+import { MidKeycloakService } from 'src/app/core/services/keycloak/mid.keycloak.service';
 
 @Component({
   selector: 'app-neverland',
@@ -37,7 +38,8 @@ export class NeverlandComponent {
       : 4;
 
   constructor(
-   private keycloak: KeycloakService
+   private keycloak: KeycloakService,
+   private keycloakService: MidKeycloakService
   ) {}
 
   ngOnInit(): void {
@@ -104,7 +106,10 @@ export class NeverlandComponent {
   }
 
   toggleDownloadMode(): void {
-    this.keycloak.logout()
+    // if(!this.keycloakService.isAuthenticated()) {
+    //   this.keycloak.login()
+    // }
+    
     this.downloadMode = !this.downloadMode;
     if (!this.downloadMode) {
       this.resetSelectedImages();
