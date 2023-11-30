@@ -21,11 +21,14 @@ export class KeycloakAuthGuardGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.midKeycloakService.isAuthenticated()) {
-      return true;
-    }
+    // if (this.midKeycloakService.isAuthenticated()) {
+    //   return true;
+    // }
 
-    this.midKeycloakService.login();
-    return false;
+    // this.midKeycloakService.login();
+    // return false;
+
+
+    return true;
   }
 }

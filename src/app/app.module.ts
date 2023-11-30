@@ -19,25 +19,7 @@ import { TermsOfUsePopupComponent } from './shared/components/terms-of-use-popup
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 import { initializeKeycloak } from './core/services/keycloak/mid.keycloak.service';
-
-// function initializeKeycloak(keycloak: KeycloakService) {
-//   return () =>
-//     keycloak
-//       .init({
-//         config: {
-//           url: 'http://localhost:9090',
-//           realm: 'master',
-//           clientId: 'optimus',
-//         },
-//         initOptions: {
-//           onLoad: 'check-sso', // allowed values 'login-required', 'check-sso';
-//           flow: 'standard', // allowed values 'standard', 'implicit', 'hybrid';
-//         },
-//       })
-//       .then((authenticated) => {
-//         console.log({ authenticated });
-//       });
-// }
+import { ConfirmationPopupComponent } from './shared/components/confirmation-popup/confirmation-popup.component';
 
 const initKeycloak = {
   provide: APP_INITIALIZER,
@@ -57,6 +39,7 @@ const initKeycloak = {
     MessagePopupComponent,
     RequestFeatureComponent,
     PrivacyPolicyComponent,
+    ConfirmationPopupComponent,
   ],
   imports: [
     BrowserModule,

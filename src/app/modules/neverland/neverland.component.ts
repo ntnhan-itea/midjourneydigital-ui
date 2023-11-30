@@ -7,6 +7,7 @@ import { MessagePopupComponent } from 'src/app/shared/components/message-popup/m
 import { NeverlandImage } from 'src/app/shared/models/NeverlandImage';
 import { environment } from 'src/environments/environment';
 import { MidKeycloakService } from 'src/app/core/services/keycloak/mid.keycloak.service';
+import { ConfirmationService } from 'src/app/shared/components/confirmation-popup/confirmation.service';
 
 @Component({
   selector: 'app-neverland',
@@ -39,7 +40,8 @@ export class NeverlandComponent {
 
   constructor(
    private keycloak: KeycloakService,
-   private keycloakService: MidKeycloakService
+   private keycloakService: MidKeycloakService,
+   private confirmationService: ConfirmationService,
   ) {}
 
   ngOnInit(): void {
@@ -57,7 +59,8 @@ export class NeverlandComponent {
 
   private _getImages(): NeverlandImage[] {
     const urlFolder = 'assets/img-manh/';
-    const numberOfImages = 323;
+    // const numberOfImages = 323;
+    const numberOfImages = 10;
     let result: NeverlandImage[] = [];
 
     for (let i = 1; i <= numberOfImages; i += 1) {
@@ -90,7 +93,10 @@ export class NeverlandComponent {
   }
 
   showRequestFeature() {
-    this.showingRequestFeaturePopup = true;
+    this.keycloakService.logout()
+
+    // TODO: uncomment it when deploying
+    // this.showingRequestFeaturePopup = true;
   }
 
   closeRequestFeature() {
@@ -105,10 +111,25 @@ export class NeverlandComponent {
     this.imageIdToolTip = null;
   }
 
+  openConfirmationPopup() {
+    const message = 'Are you sure you want to perform this action?';
+    const confirmActionCallback = this.performAction.bind(this);
+    this.confirmationService.show(message, confirmActionCallback);
+  }
+
+  performAction() {
+    console.log('Action performed!');
+    // Implement your confirmed action logic here
+  }
+
   toggleDownloadMode(): void {
     // if(!this.keycloakService.isAuthenticated()) {
     //   this.keycloak.login()
     // }
+
+    this.openConfirmationPopup();
+
+    // this.keycloakService.requireLogin();
     
     this.downloadMode = !this.downloadMode;
     if (!this.downloadMode) {

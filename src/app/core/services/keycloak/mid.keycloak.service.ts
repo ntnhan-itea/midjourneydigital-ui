@@ -20,6 +20,12 @@ export class MidKeycloakService {
   login() {
     this.keycloak.login();
   }
+
+  requireLogin() {
+    if(!this.isAuthenticated()) {
+      this.login();
+    }
+  }
 }
 
 export function initializeKeycloak(keycloak: KeycloakService) {

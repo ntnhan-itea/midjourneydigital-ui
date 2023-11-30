@@ -26,6 +26,9 @@ import { MessageLevel } from "./message-level.enum";
     ],
 })
 export class MessagePopupComponent implements OnInit {
+    readonly TIME_REFIX_ID = "TimeId_";
+    readonly A_SECOND: number = 1000;
+
     messages: Message[] = [];
 
     constructor() {}
@@ -33,7 +36,7 @@ export class MessagePopupComponent implements OnInit {
     ngOnInit(): void {}
 
     addMessage(message: string, level: MessageLevel = MessageLevel.Primary) {
-        const timeId: string = "" + new Date().getTime();
+        const timeId: string = this.TIME_REFIX_ID + new Date().getTime();
         const newMessage: Message = {
             id: timeId,
             text: message,
@@ -57,7 +60,7 @@ export class MessagePopupComponent implements OnInit {
             this.messages = this.messages.filter(
                 (msg) => msg.id !== message.id
             );
-        }, 2000);
+        }, 2 * this.A_SECOND);
     }
 }
 

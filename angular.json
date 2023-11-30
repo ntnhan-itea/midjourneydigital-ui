@@ -32,6 +32,13 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "base64-js",
+              "js-sha256",
+              "file-saver",
+              "jszip"
             ]
           },
           "configurations": {
