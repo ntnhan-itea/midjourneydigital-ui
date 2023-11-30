@@ -1,33 +1,23 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConfirmationService {
+  private actionFuncs: Function[] = [];
+
   constructor() {}
 
   private confirmationSubject = new Subject<string>();
   confirmationMessage$ = this.confirmationSubject.asObservable();
 
-  private confirmActionCallbackSubject = new BehaviorSubject<Function>(
-    () => {}
-  );
-  confirmActionCallback$ = this.confirmActionCallbackSubject.asObservable();
-
   show(message: string, confirmActionCallback: Function) {
     this.confirmationSubject.next(message);
-
-    this.confirmActionCallbackSubject = new BehaviorSubject<Function>(
-      () => {}
-    );
-    this.confirmActionCallbackSubject.next(confirmActionCallback);
+    this.actionFuncs = [confirmActionCallback];
   }
 
   actionFn() {
-    this.confirmActionCallback$.subscribe(fn => fn());  
+    this.actionFuncs.forEach(fn => fn());
   }
-
-  
-
 }

@@ -11,19 +11,18 @@ export class ConfirmationPopupComponent implements OnInit {
   @ViewChild('confirmationModal') confirmationModal!: ElementRef;
 
   isOpen: boolean = false;
+  message: string = '';
 
   constructor(private confirmationService: ConfirmationService) {}
 
   ngOnInit(): void {
     this.confirmationService.confirmationMessage$.subscribe((msg) => {
       console.log({msg});
+      this.message = msg;
       this.show();
     });
   }
 
-  get message(): Observable<string> {
-    return this.confirmationService.confirmationMessage$;
-  }
 
   show(): void {
     this.isOpen  = true
