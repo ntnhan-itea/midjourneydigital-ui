@@ -1,6 +1,6 @@
 # Stage 1: Compile and Build angular codebase
 # Use official node image as the base image
-FROM node:16.20.1 as build
+FROM node:18.18.2 as build
 
 # Set the working directory
 WORKDIR /workspace/app
