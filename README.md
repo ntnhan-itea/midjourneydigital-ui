@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
 
 # Node version
-Node version: 16.20.1
+Node version: 18.18.2
 
 ## Development server
 
