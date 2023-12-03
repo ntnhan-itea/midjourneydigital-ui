@@ -19,17 +19,26 @@
           >
             Venus Team
           </a>
-          <button
-            aria-controls="navigation-index"
-            aria-label="Toggle navigation"
-            class="navbar-toggler navbar-toggler"
-            [attr.aria-expanded]="!isCollapsed"
-            (click)="isCollapsed = !isCollapsed"
-            id="navigation"
-            type="button"
-          >
-            <i class="fa-solid fa-bars icon"></i>
-          </button>
+          <div>
+            <button
+              aria-controls="navigation-index"
+              aria-label="Toggle navigation"
+              class="navbar-toggler navbar-toggler"
+              [attr.aria-expanded]="!isCollapsed"
+              (click)="isCollapsed = !isCollapsed"
+              id="navigation"
+              type="button"
+            >
+              <i class="fa-solid fa-bars icon"></i>
+            </button>
+
+            <button
+              class="btn btn-primary download-container--item"
+              (click)="loginOrLogOut()"
+            >
+              {{ isLoggedIn ? "Log Out" : "Sign in" }}
+            </button>
+          </div>
         </div>
         <div
           class="navbar-collapse justify-content-end"

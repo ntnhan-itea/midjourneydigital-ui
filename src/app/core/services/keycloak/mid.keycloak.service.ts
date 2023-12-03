@@ -1,31 +1,49 @@
-import { Injectable } from '@angular/core';
-import { KeycloakService } from 'keycloak-angular';
+import {Injectable} from '@angular/core';
+import {KeycloakService} from 'keycloak-angular';
+import {BehaviorSubject, Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root',
 })
 export class MidKeycloakService {
+  private loginProcess$ = new BehaviorSubject<boolean>(false);
+
   constructor(private keycloak: KeycloakService) {
-    // this._initializeKeycloak();
   }
 
   isAuthenticated(): boolean {
     return !!this.keycloak?.getKeycloakInstance()?.authenticated;
   }
 
-  logout() {
-    this.keycloak.logout();
+  logout(): Promise<void> {
+    return this.keycloak.logout();
   }
 
-  login() {
-    this.keycloak.login();
+  async login(): Promise<void> {
+    return await this.keycloak.login()
+      .then(() => this.loginProcess$.next(true))
+      .catch(() => this.loginProcess$.next(false));
   }
 
-  requireLogin() {
-    if(!this.isAuthenticated()) {
-      this.login();
+  requireLogin(): Promise<void> {
+    if (this.isAuthenticated()) {
+      return Promise.resolve();
     }
+
+    return this.login();
   }
+
+  getRequireLoginFn(): () => void {
+    return this.requireLogin.bind(this);
+  }
+
+  getLoginProcessObservable(): Observable<boolean> {
+    if (this.isAuthenticated()) {
+      return of(true);
+    }
+    return this.loginProcess$.asObservable();
+  }
+
 }
 
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -43,6 +61,6 @@ export function initializeKeycloak(keycloak: KeycloakService) {
         },
       })
       .then((authenticated) => {
-        console.log({ authenticated });
+        console.log({authenticated});
       });
 }

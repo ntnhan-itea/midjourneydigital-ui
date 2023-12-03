@@ -1,36 +1,41 @@
 // confirmation-popup.component.scss
 
 .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
 .popup-container {
-    // background-color: black;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
+  // background-color: black;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .confirmation-popup {
-    .modal {
-      // Add your custom styles here
-      // For example:
-      max-width: 600px;
-      margin: 50px auto;
-      display: block;
-  
-      .modal-body {
-        padding: 20px;
-      }
+  min-width: 350px;
+
+  .modal {
+    // Add your custom styles here
+    // For example:
+    max-width: 600px;
+    margin: 50px auto;
+    display: block;
+
+    .modal-body {
+      padding: 20px;
     }
   }
-  
+
+  .black-text {
+    color: #0b0b20;
+  }
+}

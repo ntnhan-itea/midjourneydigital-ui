@@ -20,6 +20,8 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 import { initializeKeycloak } from './core/services/keycloak/mid.keycloak.service';
 import { ConfirmationPopupComponent } from './shared/components/confirmation-popup/confirmation-popup.component';
+import {MessagePopupService} from "./shared/components/message-popup/message-popup.service";
+import {MidjourneydigitalService} from "./core/services/api/midjourneydigital.service";
 
 const initKeycloak = {
   provide: APP_INITIALIZER,
@@ -52,7 +54,7 @@ const initKeycloak = {
     HttpClientModule,
     KeycloakAngularModule,
   ],
-  providers: [initKeycloak],
+  providers: [initKeycloak, MessagePopupService,MidjourneydigitalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ConfirmationService } from './confirmation.service';
-import { Observable } from 'rxjs';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ConfirmationService} from './confirmation.service';
 
 @Component({
   selector: 'app-confirmation-popup',
@@ -11,32 +10,31 @@ export class ConfirmationPopupComponent implements OnInit {
   @ViewChild('confirmationModal') confirmationModal!: ElementRef;
 
   isOpen: boolean = false;
-  message: string = '';
+  messageConfirmation: string = '';
 
-  constructor(private confirmationService: ConfirmationService) {}
+  constructor(private confirmationService: ConfirmationService) {
+  }
 
   ngOnInit(): void {
-    this.confirmationService.confirmationMessage$.subscribe((msg) => {
-      console.log({msg});
-      this.message = msg;
-      this.show();
-    });
+    this.confirmationService
+      .getConfirmationMessage()
+      .subscribe((msg) => {
+        this.messageConfirmation = msg;
+        this.show();
+      });
   }
 
 
   show(): void {
-    this.isOpen  = true
+    this.isOpen = true
   }
 
   hide(): void {
     this.isOpen = false;
   }
 
-  confirmAction() {
-    // this.confirmationService.confirmActionCallback$.subscribe((fn) => fn());
-    this.confirmationService.actionFn()
-    console.log("------");
-    
+  confirmAction(): void {
+    this.confirmationService.performFunction()
     this.hide();
   }
 }
