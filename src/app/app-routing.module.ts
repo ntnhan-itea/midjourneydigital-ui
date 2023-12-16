@@ -4,14 +4,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NeverlandComponent } from './modules/neverland/neverland.component';
 import { PrivacyPolicyComponent } from './modules/privacy-policy/privacy-policy.component';
-import { KeycloakAuthGuardGuard } from './core/guards/keycloak-auth-guard.guard'; 
+import { KeycloakAuthGuardGuard } from './core/guards/keycloak-auth-guard.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
     component: NeverlandComponent,
-    canActivate: [() => inject(KeycloakAuthGuardGuard).canActivate()]
+    loadChildren: () =>
+      import('./modules/neverland/neverland.module').then(
+        (m) => m.NeverlandModule
+      ),
+    canActivate: [() => inject(KeycloakAuthGuardGuard).canActivate()],
   },
   {
     path: 'privacy',

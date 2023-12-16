@@ -7,21 +7,13 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NeverlandComponent } from './modules/neverland/neverland.component';
-import { DescriptionInfoComponent } from './shared/components/description-info/description-info.component';
-import { LeftNavComponentComponent } from './shared/components/left-nav-component/left-nav-component.component';
-import { MessagePopupComponent } from './shared/components/message-popup/message-popup.component';
 import { PrivacyPolicyComponent } from './shared/components/privacy-policy/privacy-policy.component';
-import { PromptDetailDialogComponent } from './shared/components/prompt-detail-dialog/prompt-detail-dialog.component';
-import { RequestFeatureComponent } from './shared/components/request-feature/request-feature.component';
-import { TermsOfUsePopupComponent } from './shared/components/terms-of-use-popup/terms-of-use-popup.component';
 
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
+import { MidjourneydigitalService } from './core/services/api/midjourneydigital.service';
 import { initializeKeycloak } from './core/services/keycloak/mid.keycloak.service';
-import { ConfirmationPopupComponent } from './shared/components/confirmation-popup/confirmation-popup.component';
-import {MessagePopupService} from "./shared/components/message-popup/message-popup.service";
-import {MidjourneydigitalService} from "./core/services/api/midjourneydigital.service";
+import { MessagePopupService } from './shared/components/message-popup/message-popup.service';
 
 const initKeycloak = {
   provide: APP_INITIALIZER,
@@ -31,18 +23,7 @@ const initKeycloak = {
 };
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NeverlandComponent,
-    LeftNavComponentComponent,
-    DescriptionInfoComponent,
-    PromptDetailDialogComponent,
-    TermsOfUsePopupComponent,
-    MessagePopupComponent,
-    RequestFeatureComponent,
-    PrivacyPolicyComponent,
-    ConfirmationPopupComponent,
-  ],
+  declarations: [AppComponent, PrivacyPolicyComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -54,7 +35,7 @@ const initKeycloak = {
     HttpClientModule,
     KeycloakAngularModule,
   ],
-  providers: [initKeycloak, MessagePopupService,MidjourneydigitalService],
+  providers: [initKeycloak, MessagePopupService, MidjourneydigitalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
