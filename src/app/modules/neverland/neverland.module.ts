@@ -12,6 +12,11 @@ import { RequestFeatureComponent } from 'src/app/shared/components/request-featu
 import { TermsOfUsePopupComponent } from 'src/app/shared/components/terms-of-use-popup/terms-of-use-popup.component';
 import { NeverlandRoutingModule } from './neverland-routing.module';
 import { NeverlandComponent } from './neverland.component';
+import { EffectsModule } from '@ngrx/effects';
+import { NeverlandEffects } from './state/neverland.effects';
+import { StoreModule } from '@ngrx/store';
+import { NEVER_LAND_REDUCER_NAME, productReducer } from './state/neverland.reducer';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +35,8 @@ import { NeverlandComponent } from './neverland.component';
     CollapseModule,
     FormsModule,
     CarouselModule,
+    EffectsModule.forFeature([NeverlandEffects]),
+    StoreModule.forFeature(NEVER_LAND_REDUCER_NAME, productReducer)
   ],
   providers: [],
 })

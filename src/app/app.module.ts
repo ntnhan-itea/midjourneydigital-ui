@@ -14,6 +14,10 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { MidjourneydigitalService } from './core/services/api/midjourneydigital.service';
 import { initializeKeycloak } from './core/services/keycloak/mid.keycloak.service';
 import { MessagePopupService } from './shared/components/message-popup/message-popup.service';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { NeverlandEffects } from './modules/neverland/state/neverland.effects';
+import { NEVER_LAND_REDUCER_NAME, productReducer } from './modules/neverland/state/neverland.reducer';
 
 const initKeycloak = {
   provide: APP_INITIALIZER,
@@ -34,6 +38,8 @@ const initKeycloak = {
     BrowserAnimationsModule,
     HttpClientModule,
     KeycloakAngularModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({})
   ],
   providers: [initKeycloak, MessagePopupService, MidjourneydigitalService],
   bootstrap: [AppComponent],

@@ -1,14 +1,16 @@
-import {Component, ViewChild} from '@angular/core';
-import {saveAs} from 'file-saver';
+import { Component, ViewChild } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { saveAs } from 'file-saver';
 import * as JSZip from 'jszip';
-import {KeycloakService} from 'keycloak-angular';
-import {MessageLevel} from 'src/app/shared/components/message-popup/message-level.enum';
-import {MessagePopupComponent} from 'src/app/shared/components/message-popup/message-popup.component';
-import {NeverlandImage} from 'src/app/shared/models/NeverlandImage';
-import {environment} from 'src/environments/environment';
-import {MidKeycloakService} from 'src/app/core/services/keycloak/mid.keycloak.service';
-import {ConfirmationService} from 'src/app/shared/components/confirmation-popup/confirmation.service';
-import {filter} from "rxjs";
+import { MidjourneydigitalService } from 'src/app/core/services/api/midjourneydigital.service';
+import { MidKeycloakService } from 'src/app/core/services/keycloak/mid.keycloak.service';
+import { ConfirmationService } from 'src/app/shared/components/confirmation-popup/confirmation.service';
+import { MessageLevel } from 'src/app/shared/components/message-popup/message-level.enum';
+import { MessagePopupComponent } from 'src/app/shared/components/message-popup/message-popup.component';
+import { NeverlandImage } from 'src/app/shared/models/NeverlandImage';
+import { environment } from 'src/environments/environment';
+import * as NerverlandActions from '../neverland/state/neverland.actions';
+import { selectAllProducts,selectProductLoading } from '../neverland/state/neverland.selectors';
 
 @Component({
   selector: 'app-neverland',
@@ -35,17 +37,20 @@ export class NeverlandComponent {
   showingRequestFeaturePopup: boolean = false;
   isLoggedIn = false;
 
+  products$ = this.store.select(selectAllProducts);
+  productLoading$ = this.store.select(selectProductLoading);
+
   readonly maxAmountImageCanDownload: number =
     !!environment.MAX_AMOUNT_IMAGES_CAN_DOWNLOAD
       ? +environment.MAX_AMOUNT_IMAGES_CAN_DOWNLOAD
       : 4;
 
   constructor(
-    private keycloak: KeycloakService,
     private keycloakService: MidKeycloakService,
     private confirmationService: ConfirmationService,
-  ) {
-  }
+    private midjourneydigitalService: MidjourneydigitalService,
+    private store: Store
+  ) {}
 
   ngOnInit(): void {
     var body = document.getElementsByTagName('body')[0];
@@ -55,6 +60,16 @@ export class NeverlandComponent {
     this.columnsImages = this._generateColumnsImages(this.images);
 
     this.isLoggedIn = this.keycloakService.isAuthenticated();
+
+    this.productLoading$.subscribe(loading => {
+      console.log({loading});
+    })
+
+    this.store.dispatch(NerverlandActions.loadProducts());
+
+    this.productLoading$.subscribe(loading => {
+      console.log({loading});
+    })
 
     // this.midjourneydigitalService.getCounter().subscribe( testResponse => {
     //     console.log({testResponse});
@@ -114,19 +129,28 @@ export class NeverlandComponent {
     this.imageIdToolTip = null;
   }
 
-
   toggleDownloadMode(): void {
+    // const products = this.midjourneydigitalService.getProducts();
+    // console.log({ products });
+
+    this.products$.subscribe(product => {
+      console.log({product});
+    })
+    this.productLoading$.subscribe(loading => {
+      console.log({loading});
+    })
+
     // TODO: check again
-    this.confirmationService.requireConfirmLogin()
-      .pipe(
-        filter(isLoggedIn => isLoggedIn)
-      )
-      .subscribe(() => {
-        this.downloadMode = !this.downloadMode;
-        if (!this.downloadMode) {
-          this.resetSelectedImages();
-        }
-      });
+    // this.confirmationService.requireConfirmLogin()
+    //   .pipe(
+    //     filter(isLoggedIn => isLoggedIn)
+    //   )
+    //   .subscribe(() => {
+    //     this.downloadMode = !this.downloadMode;
+    //     if (!this.downloadMode) {
+    //       this.resetSelectedImages();
+    //     }
+    //   });
   }
 
   loginOrLogOut(): Promise<void> {
@@ -145,7 +169,7 @@ export class NeverlandComponent {
     image.selected = !image.selected;
 
     if (image.selected) {
-      this.selectedImages.push({id: image.id, path: image.path});
+      this.selectedImages.push({ id: image.id, path: image.path });
     } else {
       const index = this.selectedImages.findIndex(
         (selected) => selected.id === image.id
@@ -218,7 +242,7 @@ export class NeverlandComponent {
     });
 
     Promise.all(promises).then(() => {
-      zip.generateAsync({type: 'blob'}).then((content) => {
+      zip.generateAsync({ type: 'blob' }).then((content) => {
         saveAs(content, 'images.zip');
       });
     });
@@ -296,7 +320,6 @@ export class NeverlandComponent {
     this.images.forEach((e) => count++);
     return count;
   }
-
 
   // openConfirmationPopup(): void {
   //   const message = 'Are you sure you want to perform this action?';

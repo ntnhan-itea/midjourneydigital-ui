@@ -7,6 +7,7 @@ import {environment} from "src/environments/environment";
 import {Counter} from "../../../shared/models/Counter";
 import {MessagePopupService} from "../../../shared/components/message-popup/message-popup.service";
 import {MessageLevel} from "../../../shared/components/message-popup/message-level.enum";
+import { Product } from "src/app/modules/neverland/state/product.model";
 
 
 @Injectable({
@@ -26,6 +27,12 @@ export class MidjourneydigitalService {
     return this.http
       .get<Counter>(`${this.urlBackEnd}`)
       .pipe(catchError(err => this.handleError(err)));
+  }
+
+  getProducts(): Observable<Product[]> {
+    return this.http
+    .get<Product[]>(`${this.urlBackEnd}/products`)
+    .pipe(catchError(err => this.handleError(err)));
   }
 
   // POST
