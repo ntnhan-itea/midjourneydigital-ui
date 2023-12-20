@@ -4,13 +4,20 @@ import { saveAs } from 'file-saver';
 import * as JSZip from 'jszip';
 import { MidjourneydigitalService } from 'src/app/core/services/api/midjourneydigital.service';
 import { MidKeycloakService } from 'src/app/core/services/keycloak/mid.keycloak.service';
+import {
+  LanguageOption,
+  TranslationCustomService,
+} from 'src/app/core/services/translation/translation-custom.service';
 import { ConfirmationService } from 'src/app/shared/components/confirmation-popup/confirmation.service';
 import { MessageLevel } from 'src/app/shared/components/message-popup/message-level.enum';
 import { MessagePopupComponent } from 'src/app/shared/components/message-popup/message-popup.component';
 import { NeverlandImage } from 'src/app/shared/models/NeverlandImage';
 import { environment } from 'src/environments/environment';
 import * as NerverlandActions from '../neverland/state/neverland.actions';
-import { selectAllProducts,selectProductLoading } from '../neverland/state/neverland.selectors';
+import {
+  selectAllProducts,
+  selectProductLoading,
+} from '../neverland/state/neverland.selectors';
 
 @Component({
   selector: 'app-neverland',
@@ -49,7 +56,8 @@ export class NeverlandComponent {
     private keycloakService: MidKeycloakService,
     private confirmationService: ConfirmationService,
     private midjourneydigitalService: MidjourneydigitalService,
-    private store: Store
+    private store: Store,
+    private translateService: TranslationCustomService
   ) {}
 
   ngOnInit(): void {
@@ -61,20 +69,22 @@ export class NeverlandComponent {
 
     this.isLoggedIn = this.keycloakService.isAuthenticated();
 
-    this.productLoading$.subscribe(loading => {
-      console.log({loading});
-    })
+    this.productLoading$.subscribe((loading) => {
+      console.log({ loading });
+    });
 
     this.store.dispatch(NerverlandActions.loadProducts());
 
-    this.productLoading$.subscribe(loading => {
-      console.log({loading});
-    })
+    this.productLoading$.subscribe((loading) => {
+      console.log({ loading });
+    });
 
     // this.midjourneydigitalService.getCounter().subscribe( testResponse => {
     //     console.log({testResponse});
 
     // })
+
+    this.translateService.changeLanguage(LanguageOption.DE);
   }
 
   private _getImages(): NeverlandImage[] {
@@ -133,12 +143,12 @@ export class NeverlandComponent {
     // const products = this.midjourneydigitalService.getProducts();
     // console.log({ products });
 
-    this.products$.subscribe(product => {
-      console.log({product});
-    })
-    this.productLoading$.subscribe(loading => {
-      console.log({loading});
-    })
+    this.products$.subscribe((product) => {
+      console.log({ product });
+    });
+    this.productLoading$.subscribe((loading) => {
+      console.log({ loading });
+    });
 
     // TODO: check again
     // this.confirmationService.requireConfirmLogin()

@@ -16,6 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { NeverlandEffects } from './state/neverland.effects';
 import { StoreModule } from '@ngrx/store';
 import { NEVER_LAND_REDUCER_NAME, productReducer } from './state/neverland.reducer';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { NEVER_LAND_REDUCER_NAME, productReducer } from './state/neverland.reduc
     FormsModule,
     CarouselModule,
     EffectsModule.forFeature([NeverlandEffects]),
-    StoreModule.forFeature(NEVER_LAND_REDUCER_NAME, productReducer)
+    StoreModule.forFeature(NEVER_LAND_REDUCER_NAME, productReducer),
+    TranslateModule
   ],
   providers: [],
 })
