@@ -15,6 +15,13 @@ const routes: Routes = [
     canActivate: [() => inject(KeycloakAuthGuardGuard).canActivate()],
   },
   {
+    path: 'personal',
+    loadChildren: () =>
+      import('./modules/personal/personal-routing.module').then(
+        (m) => m.PersonalRoutingModule
+      ),
+  },
+  {
     path: 'privacy',
     loadChildren: () =>
       import('./modules/privacy-policy/privacy-policy.module').then(
