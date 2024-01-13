@@ -12,7 +12,7 @@ export class MessagePopupService {
   }
 
   addMessage(message: string, level: MessageLevel = MessageLevel.Primary) {
-    this.messageObservable.next(
+        this.messageObservable.next(
       {
         message: message,
         level: level

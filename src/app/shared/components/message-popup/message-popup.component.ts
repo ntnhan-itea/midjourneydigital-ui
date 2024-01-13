@@ -32,7 +32,7 @@ export class MessagePopupComponent implements OnInit {
   ngOnInit(): void {
     this.messagePopupService.getMessage()
       .subscribe(msg => {
-        this.addMessage(msg.message, msg.level)
+                this.addMessage(msg.message, msg.level)
       });
   }
 

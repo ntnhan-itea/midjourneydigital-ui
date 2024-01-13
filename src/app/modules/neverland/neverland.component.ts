@@ -1,31 +1,23 @@
-import { Component, ViewChild } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { saveAs } from 'file-saver';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {saveAs} from 'file-saver';
 import * as JSZip from 'jszip';
-import { MidjourneydigitalService } from 'src/app/core/services/api/midjourneydigital.service';
-import { MidKeycloakService } from 'src/app/core/services/keycloak/mid.keycloak.service';
-import {
-  LanguageOption,
-  TranslationCustomService,
-} from 'src/app/core/services/translation/translation-custom.service';
-import { ConfirmationService } from 'src/app/shared/components/confirmation-popup/confirmation.service';
-import { MessageLevel } from 'src/app/shared/components/message-popup/message-level.enum';
-import { MessagePopupComponent } from 'src/app/shared/components/message-popup/message-popup.component';
-import { NeverlandImage } from 'src/app/shared/models/NeverlandImage';
-import { environment } from 'src/environments/environment';
+import {MidjourneydigitalService} from 'src/app/core/services/api/midjourneydigital.service';
+import {MidKeycloakService} from 'src/app/core/services/keycloak/mid.keycloak.service';
+import {LanguageOption, TranslationCustomService,} from 'src/app/core/services/translation/translation-custom.service';
+import {MessageLevel} from 'src/app/shared/components/message-popup/message-level.enum';
+import {NeverlandImage} from 'src/app/shared/models/NeverlandImage';
+import {environment} from 'src/environments/environment';
 import * as NerverlandActions from '../neverland/state/neverland.actions';
-import {
-  selectAllProducts,
-  selectProductLoading,
-} from '../neverland/state/neverland.selectors';
+import {selectAllProducts, selectProductLoading,} from './state/neverland.selectors';
+import {MessagePopupService} from "../../shared/components/message-popup/message-popup.service";
 
 @Component({
   selector: 'app-neverland',
   templateUrl: './neverland.component.html',
   styleUrls: ['./neverland.component.scss'],
 })
-export class NeverlandComponent {
-  @ViewChild(MessagePopupComponent) messagePopup!: MessagePopupComponent;
+export class NeverlandComponent implements OnInit {
 
   isCollapsed = true;
   urlInstagram = environment.URL_INSTAGRAM;
@@ -54,11 +46,12 @@ export class NeverlandComponent {
 
   constructor(
     private keycloakService: MidKeycloakService,
-    private confirmationService: ConfirmationService,
     private midjourneydigitalService: MidjourneydigitalService,
     private store: Store,
-    private translateService: TranslationCustomService
-  ) {}
+    private translateService: TranslationCustomService,
+    private messagePopupService: MessagePopupService
+  ) {
+  }
 
   ngOnInit(): void {
     var body = document.getElementsByTagName('body')[0];
@@ -137,10 +130,10 @@ export class NeverlandComponent {
     // console.log({ products });
 
     this.products$.subscribe((product) => {
-      console.log({ product });
+      console.log({product});
     });
     this.productLoading$.subscribe((loading) => {
-      console.log({ loading });
+      console.log({loading});
     });
 
     // TODO: check again
@@ -172,7 +165,7 @@ export class NeverlandComponent {
     image.selected = !image.selected;
 
     if (image.selected) {
-      this.selectedImages.push({ id: image.id, path: image.path });
+      this.selectedImages.push({id: image.id, path: image.path});
     } else {
       const index = this.selectedImages.findIndex(
         (selected) => selected.id === image.id
@@ -221,8 +214,8 @@ export class NeverlandComponent {
     this.showMessage('This feature is developing');
   }
 
-  showMessage(msg: string, level: MessageLevel = MessageLevel.Primary) {
-    this.messagePopup.addMessage(msg, level);
+  private showMessage(msg: string, level: MessageLevel = MessageLevel.Primary) {
+    this.messagePopupService.addMessage(msg, level)
   }
 
   private _downLoadSingleImage() {
@@ -245,7 +238,7 @@ export class NeverlandComponent {
     });
 
     Promise.all(promises).then(() => {
-      zip.generateAsync({ type: 'blob' }).then((content) => {
+      zip.generateAsync({type: 'blob'}).then((content) => {
         saveAs(content, 'images.zip');
       });
     });

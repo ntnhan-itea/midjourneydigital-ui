@@ -1,16 +1,13 @@
-import { NgModule, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-import { NeverlandComponent } from './modules/neverland/neverland.component';
-import { PrivacyPolicyComponent } from './modules/privacy-policy/privacy-policy.component';
-import { KeycloakAuthGuardGuard } from './core/guards/keycloak-auth-guard.guard';
+import {inject, NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {KeycloakAuthGuardGuard} from './core/guards/keycloak-auth-guard.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {
     path: 'home',
-    component: NeverlandComponent,
     loadChildren: () =>
       import('./modules/neverland/neverland.module').then(
         (m) => m.NeverlandModule
@@ -19,7 +16,10 @@ const routes: Routes = [
   },
   {
     path: 'privacy',
-    component: PrivacyPolicyComponent,
+    loadChildren: () =>
+      import('./modules/privacy-policy/privacy-policy.module').then(
+        (m) => m.PrivacyPolicyModule
+      ),
   },
 ];
 
@@ -33,4 +33,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
