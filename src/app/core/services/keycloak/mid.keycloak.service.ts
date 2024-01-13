@@ -62,5 +62,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
       })
       .then((authenticated) => {
         console.log({authenticated});
-      });
+      })
+      .catch(keyCloakInitError => console.error({keyCloakInitError}));
+  
 }

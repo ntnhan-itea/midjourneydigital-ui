@@ -69,15 +69,8 @@ export class NeverlandComponent {
 
     this.isLoggedIn = this.keycloakService.isAuthenticated();
 
-    this.productLoading$.subscribe((loading) => {
-      console.log({ loading });
-    });
-
     this.store.dispatch(NerverlandActions.loadProducts());
 
-    this.productLoading$.subscribe((loading) => {
-      console.log({ loading });
-    });
 
     // this.midjourneydigitalService.getCounter().subscribe( testResponse => {
     //     console.log({testResponse});

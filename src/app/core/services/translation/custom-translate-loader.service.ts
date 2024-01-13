@@ -19,7 +19,6 @@ export class CustomTranslateLoader implements TranslateLoader {
   > {
     return this.http.get(this.TRANSLATION_FILE_PATH).pipe(
       map((translations: any) => {
-        console.log({ translations });
 
         const langTranslations: { [key: string]: string } = {};
 

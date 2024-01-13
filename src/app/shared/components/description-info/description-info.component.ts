@@ -37,7 +37,6 @@ export class DescriptionInfoComponent implements OnInit {
 
     ngOnInit(): void {
         this.menuState = this.isShowDescriptionImg === true ? "in" : "out";
-        // console.log(this.menuState);s
     }
 
     openRatingDialog(): void {

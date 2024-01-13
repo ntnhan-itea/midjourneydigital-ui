@@ -32,7 +32,6 @@ export class MessagePopupComponent implements OnInit {
   ngOnInit(): void {
     this.messagePopupService.getMessage()
       .subscribe(msg => {
-        console.log("====----")
         this.addMessage(msg.message, msg.level)
       });
   }

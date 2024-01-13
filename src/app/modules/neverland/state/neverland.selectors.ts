@@ -1,8 +1,8 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { NEVER_LAND_REDUCER_NAME, ProductState } from './neverland.reducer';
+import {NEVER_LAND_STATE_NAME, ProductState} from './neverland-state';
 
 export const selectProductState = createFeatureSelector<ProductState>(
-  NEVER_LAND_REDUCER_NAME
+  NEVER_LAND_STATE_NAME
 );
 
 export const selectAllProducts = createSelector(

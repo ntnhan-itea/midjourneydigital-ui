@@ -1,36 +1,30 @@
 // src/app/store/reducers/product.reducer.ts
 import { createReducer, on } from '@ngrx/store';
-import * as NerverlandActions from './neverland.actions';
-import { Product } from './product.model';
+import { ProductState, initialState } from './neverland-state';
+import * as NeverlandActions from './neverland.actions';
 
-export const NEVER_LAND_REDUCER_NAME = 'neverlandReducer';
 
-export interface ProductState {
-  products: Product[];
-  error: any;
-  loading: boolean;
-}
 
-export const initialState: ProductState = {
-  products: [],
-  error: null,
-  loading: false,
-};
-
-export const productReducer = createReducer(
+export const neverlandReducer = createReducer(
   initialState,
-  on(NerverlandActions.loadProducts, (state) => ({ ...state, loading: true })),
   on(
-    NerverlandActions.loadProductsSuccess,
-    (state, { products: _products }) => ({
+    NeverlandActions.loadProducts,
+    (state): ProductState => ({ ...state, loading: true })
+  ),
+  on(
+    NeverlandActions.loadProductsSuccess,
+    (state, { products: _products }): ProductState => ({
       ...state,
       loading: false,
       products: _products,
     })
   ),
-  on(NerverlandActions.loadProductsFailure, (state, { error: _error }) => ({
-    ...state,
-    loading: false,
-    error: _error,
-  }))
+  on(
+    NeverlandActions.loadProductsFailure,
+    (state, { error: _error }): ProductState => ({
+      ...state,
+      loading: false,
+      error: _error,
+    })
+  )
 );
