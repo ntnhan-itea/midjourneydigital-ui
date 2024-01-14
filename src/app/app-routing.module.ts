@@ -17,8 +17,8 @@ const routes: Routes = [
   {
     path: 'personal',
     loadChildren: () =>
-      import('./modules/personal/personal-routing.module').then(
-        (m) => m.PersonalRoutingModule
+      import('./modules/personal/personal.module').then(
+        (m) => m.PersonalModule
       ),
   },
   {
