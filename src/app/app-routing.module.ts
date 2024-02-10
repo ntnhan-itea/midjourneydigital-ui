@@ -22,6 +22,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'creative-room',
+    loadChildren: () =>
+      import('./modules/creative-boom/creative-boom.module').then(
+        (m) => m.CreativeBoomModule
+      ),
+  },
+  {
     path: 'privacy',
     loadChildren: () =>
       import('./modules/privacy-policy/privacy-policy.module').then(
