@@ -17,7 +17,7 @@ import { initializeKeycloak } from './core/services/keycloak/mid.keycloak.servic
 import { HttpLoaderFactory } from './core/services/translation/custom-translate-loader.service';
 import { AppFooterComponent } from './modules/app-footer/app-footer.component';
 import { AppHeaderComponent } from './modules/app-header/app-header.component';
-import { MessagePopupComponent } from "./shared/components/message-popup/message-popup.component";
+import { MessagePopupComponent } from './shared/components/message-popup/message-popup.component';
 
 const initKeycloak = {
   provide: APP_INITIALIZER,
@@ -27,7 +27,12 @@ const initKeycloak = {
 };
 
 @NgModule({
-  declarations: [AppComponent, AppFooterComponent, AppHeaderComponent, MessagePopupComponent],
+  declarations: [
+    AppComponent,
+    AppFooterComponent,
+    AppHeaderComponent,
+    MessagePopupComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,10 +52,8 @@ const initKeycloak = {
         deps: [HttpClient],
       },
     }),
-
   ],
   // providers: [initKeycloak],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

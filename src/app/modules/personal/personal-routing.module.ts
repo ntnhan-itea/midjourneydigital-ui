@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { PersonalDetailComponent } from './personal-detail/personal-detail.component';
 import { PersonalComponent } from './personal.component';
 
-const routes: Routes = [{ path: '', component: PersonalComponent }];
+const routes: Routes = [
+  {
+    path: '',
+    component: PersonalComponent,
+    children: [{ path: 'detail', component: PersonalDetailComponent }],
+  },
+];
 
 @NgModule({
   declarations: [],
