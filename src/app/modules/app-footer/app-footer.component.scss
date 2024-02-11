@@ -1,10 +1,14 @@
 /* footer.component.scss */
 .footer {
+  height: 55px;
   background-color: #f8f9fa;
-  padding: 20px 0;
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.container {
+  padding: 10px 0;
 }
 
 .btn-lang {
