@@ -18,6 +18,9 @@ export class CreativeBoomComponent implements OnInit {
     const image: ImageModel = {
       src: '../../../../assets/img-manh/1.jpg',
     };
+    const image2: ImageModel = {
+      src: '../../../../assets/img-manh/3.jpg',
+    };
 
     const inspirationInfo: InspirationInfo = {
       imageModel: image,
@@ -26,17 +29,24 @@ export class CreativeBoomComponent implements OnInit {
       creationDate: new Date(),
     };
 
+    const inspirationInfo2: InspirationInfo = {
+      imageModel: image2,
+      description: `Illustrator Joseph Carrington on confronting what challenges you and the
+       benefits of representation`,
+      creationDate: new Date(),
+    };
+
     this.images = [
       inspirationInfo,
+      inspirationInfo2,
       inspirationInfo,
+      inspirationInfo2,
       inspirationInfo,
+      inspirationInfo2,
       inspirationInfo,
+      inspirationInfo2,
       inspirationInfo,
-      inspirationInfo,
-      inspirationInfo,
-      inspirationInfo,
-      inspirationInfo,
-      inspirationInfo,
+      inspirationInfo2,
     ];
   }
 }
