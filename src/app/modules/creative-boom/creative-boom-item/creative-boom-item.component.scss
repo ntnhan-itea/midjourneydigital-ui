@@ -12,4 +12,21 @@
     margin: 4px 2px;
     border-radius: 15px;
   }
+
+  &__image {
+    overflow: hidden;
+  }
+
+  &__image-item {
+    cursor: pointer;
+    transition: transform 1s ease;
+    // transition-property: transform;
+    // transition-timing-function: cubic-bezier(.4,0,.2,1);
+    // transition-duration: 1s;
+  }
+
+  &__image-item:hover {
+    transform: scale(1.1);
+  }
+
 }

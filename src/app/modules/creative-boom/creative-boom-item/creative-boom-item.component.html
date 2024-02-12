@@ -1,22 +1,30 @@
 <ng-container *ngIf="!!inspiration">
-  <div class="container">
-    <div class="container__item container__image">
-      <img [src]="inspiration.imageModel.src" alt="this is image" class="img-fluid" />
-    </div>
+    <div class="container">
+      <div class="container__item container__image" [formGroup]="form">
+        <img
+          [src]="inspiration.imageModel.src"
+          [alt]="form.controls.image.controls.alt.value || ''"
+          class="img-fluid container__image-item"
+        />
+      </div>
 
-    <div class="container__item container__option">
-      <div class="container__option-buttons">
-        <button type="button" class="btn container__option-button">INSPIRATION</button>
-        <button type="button" class="btn container__option-button">ILLUSTRATION</button>
+      <div class="container__item container__option">
+        <div class="container__option-buttons">
+          <button type="button" class="btn container__option-button">
+            INSPIRATION
+          </button>
+          <button type="button" class="btn container__option-button">
+            ILLUSTRATION
+          </button>
+        </div>
+      </div>
+
+      <div class="container__item container__description">
+        {{ inspiration.description }}
+      </div>
+
+      <div class="container__item container__timeline">
+        {{ inspiration.creationDate | date : "d MMMM yyyy" }}
       </div>
     </div>
-
-    <div class="container__item container__description">
-      {{ inspiration.description }}
-    </div>
-
-    <div class="container__item container__timeline">
-      {{ inspiration.creationDate | date : "d MMMM yyyy" }}
-    </div>
-  </div>
 </ng-container>
