@@ -13,6 +13,14 @@
     border-radius: 15px;
   }
 
+  &__description {
+    font-weight: 500;
+  }
+  // &__description::first-letter {
+  //   font-size: 90px;
+  //   line-height: 96px;
+  // }
+
   &__image {
     overflow: hidden;
   }
