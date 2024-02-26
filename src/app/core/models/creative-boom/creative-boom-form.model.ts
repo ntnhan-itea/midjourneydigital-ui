@@ -1,25 +1,22 @@
 import {FormControl, FormGroup} from '@angular/forms';
 
-export enum LobBranch {
-  SACHVERSICHERUG = 'SACHVERSICHERUG',
-  TECHNISCHE_VERSICHERUNG = 'TECHNISCHE_VERSICHERUNG',
-  TRANSPORT_VERSICHERUNG = 'TRANSPORT_VERSICHERUNG',
-  HAFTPFLICHT_VERSICHERUNG = 'HAFTPFLICHT_VERSICHERUNG',
-  RECHTSSCHUTZ = 'RECHTSSCHUTZ',
-  ASSISTANCE = 'ASSISTANCE',
+export enum TypeOfImage {
+  NATURAL = 'NATURAL',
+  ANIMAL = 'ANIMAL',
+  FLYABLE = 'FLYABLE',
 }
 
-export interface CommissionRateForm {
+export interface ImageRateForm {
   commissionRate: FormControl<number>;
   rateDuration: FormControl<Date[]>;
 }
 
-export type OnwardCommissionRateForm = FormGroup<{
-  current?: FormGroup<CommissionRateForm>;
-  future?: FormGroup<CommissionRateForm>;
+export type TwoTypeImages = FormGroup<{
+  old?: FormGroup<ImageRateForm>;
+  new?: FormGroup<ImageRateForm>;
 }>;
 
-export type OnwardCommissionRateForms = FormGroup<{ [key in LobBranch]: OnwardCommissionRateForm }>;
+export type ImagesRatingForm = FormGroup<{ [key in TypeOfImage]: TwoTypeImages }>;
 
 
 export interface ImageInfoControl {
