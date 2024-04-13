@@ -10,11 +10,12 @@ import {
 import { InspirationInfo } from '../../core/models/creative-boom/creative-boom.model';
 import { ImageModel } from '../../core/models/image/image.model';
 import { CreativeBoomItemComponent } from './creative-boom-item/creative-boom-item.component';
+import {CreativeBoomHeaderComponent} from "./creative-boom-header/creative-boom-header.component";
 
 @Component({
   selector: 'app-creative-boom',
   standalone: true,
-  imports: [CommonModule, CreativeBoomItemComponent],
+  imports: [CommonModule, CreativeBoomItemComponent, CreativeBoomHeaderComponent],
   templateUrl: './creative-boom.component.html',
   styleUrls: ['./creative-boom.component.scss'],
 })

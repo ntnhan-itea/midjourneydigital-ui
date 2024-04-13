@@ -1,10 +1,15 @@
-<div class="container">
-  <div class="row container__row">
-    <div
-      class="col-xxl-2 col-lg-3 col-md-6 col-12 container__row-col"
-      *ngFor="let image of images"
-    >
-      <app-creative-boom-item [inspiration]="image" [form]="form"> </app-creative-boom-item>
+<ng-container>
+  <app-creative-boom-header></app-creative-boom-header>
+
+  <div class="container">
+    <div class="row container__row">
+      <div
+        class="col-xxl-2 col-lg-3 col-md-6 col-12 container__row-col"
+        *ngFor="let image of images"
+      >
+        <app-creative-boom-item [inspiration]="image" [form]="form"> </app-creative-boom-item>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>
+
