@@ -27,10 +27,10 @@ export class CreativeBoomComponent implements OnInit {
     this._initForm();
 
     const image: ImageModel = {
-      src: '../../../../assets/img-manh/1.jpg',
+      src: '../../../../assets/img-question/keychain1.jpg',
     };
     const image2: ImageModel = {
-      src: '../../../../assets/img-manh/3.jpg',
+      src: '../../../../assets/img-question/model1.jpg',
     };
 
     const inspirationInfo: InspirationInfo = {
