@@ -7,6 +7,11 @@ const routes: Routes = [
     path: '',
     component: CreativeBoomComponent,
   },
+  {
+    path: ':imageName',
+    loadComponent: () => import('./creative-boom-detail/creative-boom-detail.component')
+    .then(c => c.CreativeBoomDetailComponent)
+  },
 ];
 
 @NgModule({
