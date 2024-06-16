@@ -35,6 +35,13 @@ const routes: Routes = [
         (m) => m.PrivacyPolicyModule
       ),
   },
+  {
+    path: 'learning',
+    loadChildren: () =>
+      import('./modules/navigate-parent/navigate-parent-routing.module').then(
+        (m) => m.NavigateComponents
+      ),
+  },
 ];
 
 @NgModule({
